@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  background: grey;
+  margin: 0;
+}
+
+/* took some styling inspiration from a previous module */
+button {
+  background: green;
+  border-radius: 8px;
+  color: #f5f6f6;
+  cursor: pointer;
+  font-size: 36px;
+  line-height: 16px;
+  max-width: 250px;
+  padding: 20px 45px;
+  text-align: center;
+}
+
+header {
+  padding: 40px;
+  text-align: center;
+  color: #000000;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+section {
+  flex: 0 auto;
+  padding: 8px;
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.card {
+  background: #ffffff;
+  border: 5px solid #000000;
+  border-radius: 8px;
+  margin: auto;
+  padding: 2px;
+}
+
+.large-font {
+  font-size: 48px;
+  text-align: center;
+}
