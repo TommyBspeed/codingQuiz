@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background: rgb(79, 79, 79);
+  background: radial-gradient(circle, #a4a4a4 0%, #0000009a 100%);
   margin: 0;
 }
 
