@@ -27,11 +27,33 @@ function startTimer() {
 }
 
 function renderQuestion() {
-  var question1 = "test";
+  var question1 = "How do you know if a function is being called?";
+  var question2 =
+    "What can you do to make an element do something when clicked?";
+  var question3 = "What does the '.push' operator do?";
+  var question4 = "What is the strict equality comparison operator?";
 }
 
 function renderAnswers() {
-  var answers = "test";
+  var answers1 = [
+    "The command '.call' is after the function",
+    "You do not need to call a function",
+    "The function is folowed by '()'",
+    "You yell at the computer to 'DO SOMETHING!!'",
+  ];
+  var answers2 = [
+    "All elements are automatically resonsive.",
+    "You must add an event listener to the element",
+    "Double click on the element.",
+    "Set an interval to the element",
+  ];
+  var answers3 = [
+    "It pushes the code to the web page.",
+    "It adds indentation to your web page",
+    "It adds an item to the end of an array.",
+    "It reminds you to get up and do some push-ups!",
+  ];
+  var answers4 = ["=", "==", "!=", "==="];
 }
 
 startButton.on("click", function () {
