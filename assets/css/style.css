@@ -16,11 +16,10 @@ body {
 button {
   background: green;
   border-radius: 8px;
-  color: #f5f6f6;
+  color: #dadada;
   cursor: pointer;
   font-size: 36px;
   line-height: 16px;
-  max-width: 250px;
   padding: 20px 45px;
   text-align: center;
 }
@@ -37,6 +36,10 @@ main {
   justify-content: space-around;
 }
 
+aside h3 {
+  text-align: center;
+}
+
 section {
   flex: 0 auto;
   padding: 8px;
@@ -45,13 +48,18 @@ section {
   border-radius: 8px;
 }
 
-.card {
+/* .card {
   background: #ffffff;
-  border: 5px solid #000000;
+  border: 3px solid #000000;
   border-radius: 8px;
   margin: auto;
   padding: 2px;
-}
+} */
+/* .timer {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+} */
 
 .large-font {
   font-size: 48px;
