@@ -4,11 +4,14 @@ var score = $(".score");
 var timer = $(".timer");
 var paraBox = $(".paraBox");
 var highScore = $(".initialForm");
+var card = $(".card");
+var answerButtons = $("#qaButtons");
 
-//hide the scoreboard and timer on intial load
+//hide elements that wont be used til later on the initial page load
 score.hide();
 timer.hide();
 highScore.hide();
+card.hide();
 
 var secondsLeft = 30;
 
@@ -26,34 +29,47 @@ function startTimer() {
   }, 1000);
 }
 
-function renderQuestion() {
-  var question1 = "How do you know if a function is being called?";
-  var question2 =
-    "What can you do to make an element do something when clicked?";
-  var question3 = "What does the '.push' operator do?";
-  var question4 = "What is the strict equality comparison operator?";
-}
+//create variables for each of the questions to be asked in the quiz
+var question1 = "How do you know if a function is being called?";
+var question2 = "What can you do to make an element do something when clicked?";
+var question3 = "What does the '.push' operator do?";
+var question4 = "What is the strict equality comparison operator?";
+
+//crate answers for each of the questions
+var answers1 = [
+  "The command '.call' is after the function",
+  "You do not need to call a function",
+  "The function is folowed by '()'",
+  "You yell at the computer to 'DO SOMETHING!!'",
+];
+var answers2 = [
+  "All elements are automatically resonsive.",
+  "You must add an event listener to the element",
+  "Double click on the element.",
+  "Set an interval to the element",
+];
+var answers3 = [
+  "It pushes the code to the web page.",
+  "It adds indentation to your web page",
+  "It adds an item to the end of an array.",
+  "It reminds you to get up and do some push-ups!",
+];
+var answers4 = ["=", "==", "!=", "==="];
 
 function renderAnswers() {
-  var answers1 = [
-    "The command '.call' is after the function",
-    "You do not need to call a function",
-    "The function is folowed by '()'",
-    "You yell at the computer to 'DO SOMETHING!!'",
-  ];
-  var answers2 = [
-    "All elements are automatically resonsive.",
-    "You must add an event listener to the element",
-    "Double click on the element.",
-    "Set an interval to the element",
-  ];
-  var answers3 = [
-    "It pushes the code to the web page.",
-    "It adds indentation to your web page",
-    "It adds an item to the end of an array.",
-    "It reminds you to get up and do some push-ups!",
-  ];
-  var answers4 = ["=", "==", "!=", "==="];
+  // Dynamically create buttons for the answers.
+  for (var i = 0; i < answers1.length; i++) {
+    // Create button
+    var answerBtn = $("<button>");
+    // // Assign style to the button
+    // letterBtn.addClass('letter-button btn btn-info');
+    // Assign the letter to the data-letter attribute
+    answerBtn.attr("data-answer", answers1[i]);
+    // Display the letter
+    answerBtn.text(answers1[i]);
+    // Attach the letter element
+    answerButtons.append(answerBtn);
+  }
 }
 
 startButton.on("click", function () {
@@ -61,7 +77,6 @@ startButton.on("click", function () {
   paraBox.hide();
   score.show();
   timer.show();
-  renderQuestion();
-  renderAnswers();
   startTimer();
+  renderAnswers();
 });
