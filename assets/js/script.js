@@ -79,29 +79,6 @@ const questions = [
   },
 ];
 
-// function renderQuestionAnswers() {
-//   // Dynamically create buttons for the answers.
-//   for (var i = 0; i < answers1.length; i++) {
-//     // Create button
-//     var answerBtn = $("<button>");
-//     // Assign answers to the buttons
-//     answerBtn.attr("data-answer", answers1[i]);
-//     // Display the answers
-//     answerBtn.text(answers1[i]);
-//     // Attach the buttons
-//     answerButtons.append(answerBtn);
-//   }
-
-//   //Attach the Question
-//   var questionh3 = $("<h3>");
-//   // Assign question to the h3
-//   questionh3.attr("data-question", question1);
-//   // Display the question
-//   questionh3.text(question1);
-//   // Attach the h3
-//   questionBox.append(questionh3);
-// }
-
 //place the scores into local storage
 function renderScores(event) {
   event.preventDefault;
