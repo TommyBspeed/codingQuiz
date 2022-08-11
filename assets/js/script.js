@@ -145,6 +145,7 @@ function renderScores() {
 function endGame() {
   scoreArea.show();
   questionBox.hide();
+  timer.text("GAME OVER");
   renderScores();
 }
 
