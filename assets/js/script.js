@@ -4,14 +4,13 @@ var score = $(".score");
 var timer = $(".timer");
 var paraBox = $(".paraBox");
 var highScore = $(".initialForm");
-var card = $(".card");
 var answerButtons = $("#qaButtons");
+var questionBox = $(".card-question");
 
 //hide elements that wont be used til later on the initial page load
 score.hide();
 timer.hide();
 highScore.hide();
-card.hide();
 
 var secondsLeft = 30;
 
@@ -23,6 +22,7 @@ function startTimer() {
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
+      endGame();
     } else if (secondsLeft < 10) {
       timer.css("color", "red");
     }
@@ -61,22 +61,30 @@ function renderAnswers() {
   for (var i = 0; i < answers1.length; i++) {
     // Create button
     var answerBtn = $("<button>");
-    // // Assign style to the button
-    // letterBtn.addClass('letter-button btn btn-info');
-    // Assign the letter to the data-letter attribute
+    // Assign answers to the buttons
     answerBtn.attr("data-answer", answers1[i]);
-    // Display the letter
+    // Display the answers
     answerBtn.text(answers1[i]);
-    // Attach the letter element
+    // Attach the buttons
     answerButtons.append(answerBtn);
   }
 }
 
+function renderQuestions() {
+  var questionh3 = $("<h3>");
+  // Assign question to the h3
+  questionh3.attr("data-question", question1);
+  // Display the question
+  questionh3.text(question1);
+  // Attach the h3
+  questionBox.append(questionh3);
+}
 startButton.on("click", function () {
   startButton.hide();
   paraBox.hide();
   score.show();
   timer.show();
   startTimer();
+  renderQuestions();
   renderAnswers();
 });
