@@ -72,12 +72,57 @@ const questions = [
   },
 
   {
+    question: "What is the strict inequality comparison operator?",
+    answers: [
+      { text: "=!", correct: false },
+      { text: "!==", correct: true },
+      { text: "!=", correct: false },
+      { text: "!!!", correct: false },
+    ],
+  },
+  {
     question: "What is the strict equality comparison operator?",
     answers: [
       { text: "=", correct: false },
       { text: "==", correct: false },
       { text: "!=", correct: false },
       { text: "===", correct: true },
+    ],
+  },
+  {
+    question: "How can you recognize an array?",
+    answers: [
+      { text: "The items are contained within '[]'", correct: true },
+      { text: "The items are contained within '()'", correct: false },
+      { text: "The items are contained within '{}' ", correct: false },
+      { text: "The items are contained within '<>'", correct: false },
+    ],
+  },
+  {
+    question: "How can you recognize that a string?",
+    answers: [
+      { text: "The items are contained within brackets.", correct: false },
+      { text: "The items are contained within parentheses.", correct: false },
+      { text: "The items are contained within curly braces.", correct: false },
+      { text: "The items are contained within quotes.", correct: true },
+    ],
+  },
+  {
+    question: "What does 'JS' stand for?",
+    answers: [
+      { text: "JavaScript", correct: true },
+      { text: "JumboScript", correct: false },
+      { text: "Just Saying", correct: false },
+      { text: "Jesus' Scribes", correct: false },
+    ],
+  },
+  {
+    question: "How fun is coding?",
+    answers: [
+      { text: "Fun", correct: true },
+      { text: "Super fun", correct: true },
+      { text: "The most fun", correct: true },
+      { text: "Not fun at all", correct: false },
     ],
   },
 ];
