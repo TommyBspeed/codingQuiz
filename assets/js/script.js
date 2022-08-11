@@ -128,7 +128,7 @@ function endGame() {
   renderScores();
 }
 
-//start the game on the slick of start button
+//start the game on the click of start button
 startButton.on("click", function () {
   startButton.hide();
   hsButton.hide();
