@@ -33,39 +33,42 @@ function startTimer() {
   }, 1000);
 }
 
-//create variables for each of the questions to be asked in the quiz
-var question1 = "How do you know if a function is being called?";
-var question2 = "What can you do to make an element do something when clicked?";
-var question3 = "What does the '.push' operator do?";
-var question4 = "What is the strict equality comparison operator?";
+//create arrays for each of the questions to be asked in the quiz along with their answers
 
-//crate answers for each of the questions
-var answers1 = [
-  "The command '.call' is after the function",
-  "You do not need to call a function",
-  "The function is folowed by '()'",
-  "You yell at the computer to 'DO SOMETHING!!'",
-];
-var answers2 = [
-  "All elements are automatically resonsive.",
-  "You must add an event listener to the element",
-  "Double click on the element.",
-  "Set an interval to the element",
-];
-var answers3 = [
-  "It pushes the code to the web page.",
-  "It adds indentation to your web page",
-  "It adds an item to the end of an array.",
-  "It reminds you to get up and do some push-ups!",
-];
-var answers4 = ["=", "==", "!=", "==="];
+const questions = [
+    {
+        question: "How do you know if a function is being called?",
+        answers: [
+            { text: "The command '.call' is after the function", correct: false},
+  {text: "You do not need to call a function", correct: false},
+  { text: "The function is folowed by '()'", correct: true},
+  {text: "You yell at the computer to 'DO SOMETHING!!'", correct: false},
+        ]
 
-var correctAnswers = [
-  "The function is followed by '()'",
-  "You must add an event listener to the element.",
-  "It adds an item to the end of an array.",
-  "===",
-];
+
+    },
+    {question: "What can you do to make an element do something when clicked?",
+        answers: [
+            { text: "All elements are automatically resonsive.", correct: false},
+  {text: "You must add an event listener to the element", correct: true},
+  { text: "Double click on the element.", correct: false},
+  {text: "Set an interval to the element", correct: false}, ] },
+
+  {question: "What does the '.push' operator do?",
+        answers: [
+            { text: "It pushes the code to the web page.", correct: false},
+  {text: "It adds indentation to your web page", correct: false},
+  { text: "It reminds you to get up and do some push-ups!", correct: false},
+  {text: "It adds an item to the end of an array.", correct: true}, ] }
+
+
+  {question: "What is the strict equality comparison operator?",
+        answers: [
+            { text: "=", correct: false},
+  {text: "==", correct: false},
+  { text: "!=", correct: false},
+  {text: "===", correct: true}, ] }
+]
 
 function renderQuestionAnswers() {
   // Dynamically create buttons for the answers.
