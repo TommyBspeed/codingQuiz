@@ -1,5 +1,7 @@
 //variable declarations
 var startButton = $("#start-button");
+var submitButton = $("#submitScore");
+var resetButton = $("#reset");
 var hsButton = $("#hs-button");
 var score = $(".score");
 var timer = $(".timer");
@@ -8,6 +10,7 @@ var scoreArea = $("#scoreArea");
 var questionsText = $("#questions");
 var answers = $("#answers");
 var questionBox = $("#questionBox");
+var userInitials = $("#userInitials");
 var currentQuestionIndex;
 
 var points = 0;
@@ -27,7 +30,7 @@ function startTimer() {
     timer.text(secondsLeft + " seconds left!");
     score.text("Current score: " + points);
 
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       endGame();
     } else if (secondsLeft < 10) {
@@ -169,7 +172,7 @@ function incorrectAnswer() {
 
 //place the scores into local storage
 function renderScores() {
-  localStorage.getItem("#initials", initials);
+  localStorage.getItem("#initials", userInitials);
   localStorage.getItem("score", points);
   initials.text = userInitials;
 
@@ -191,26 +194,30 @@ function endGame() {
   scoreArea.show();
   questionBox.hide();
   timer.text("GAME OVER");
-  renderScores();
 }
 
+//assign function to the see high scores button
+hsButton.on("click", function () {
+  alert("HIGH SCORES:");
+});
+//assign function to the submit score button
+submitButton.on("click", function () {
+  renderScores();
+});
+//assign function to the try again button
+resetButton.on("click", function () {
+  return;
+});
 //start the game on the click of start button
-startButton.on(
-  "click",
-  function () {
-    startButton.hide();
-    hsButton.hide();
-    paraBox.hide();
-    score.show();
-    timer.show();
-    questionsText.show();
-    questionBox.show();
-    qNum = 0;
-    renderQuestion(0);
-    startTimer();
-  }
-
-  //   hsButton.on("click", function () {
-  //     alert();
-  //   })
-);
+startButton.on("click", function () {
+  startButton.hide();
+  hsButton.hide();
+  paraBox.hide();
+  score.show();
+  timer.show();
+  questionsText.show();
+  questionBox.show();
+  qNum = 0;
+  renderQuestion(0);
+  startTimer();
+});
