@@ -88,9 +88,26 @@ function renderQuestion(currentQuestion) {
   });
   var answerButtons = $(".answerButtons");
   //create event listener for the answerButtons
-  answerButtons.on("click", function () {
-    console.log("answerButtons.correct");
+  answerButtons.on("click", function (event) {
+    const chosenButtonIndex = event.target.id;
+
+    //look up the correct value for chosenButtonIndex
+    const isCorrect =
+      questions[currentQuestion].answers[chosenButtonIndex].correct;
+
+    //if correct fire correctAnswer() else fire incorrectAnswer()
+    if (isCorrect) {
+      correctAnswer();
+    } else {
+      incorrectAnswer();
+    }
   });
+}
+function correctAnswer() {
+  console.log("woo!");
+}
+function incorrectAnswer() {
+  console.log("boo!");
 }
 
 //place the scores into local storage
