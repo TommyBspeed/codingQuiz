@@ -7,6 +7,7 @@ var highScore = $(".initialForm");
 var userInitials = $("#initials");
 var answerButtons = $("#qaButtons");
 var questionBox = $(".card-question");
+var scoreNames = $(".scoreNames");
 var points = 0;
 
 //hide elements that wont be used til later on the initial page load
@@ -89,24 +90,39 @@ function renderQuestionAnswers() {
   questionBox.append(questionh3);
 }
 
+// if (answerBtn.on("click" === correctAnswers)) {
+//   score + 10;
+// }
+
 //place the scores into local storage
-function renderScores() {
+function renderScores(event) {
+  event.preventDefault;
   localStorage.getItem("#initials", initials);
+  localStorage.getItem("score", score);
   initials.text = userInitials;
 
   if (userInitials === "") {
     alert("You must add you initials!");
   }
+  var scoreNames = $(
+    '<li class="flex-row justify-space-between align-center p-2 ">'
+  );
+  scoreNames.text(userInitials);
+  scoreNames.append(initials, score);
 
   //save the initials input to the local storage and render it to the highscores
   localStorage.setItem("#initials", userInitials);
+  localStorage.setItem("score", score);
 }
 
 function endGame() {
   highScore.show();
   renderScores();
 }
+//handles the scoreboard when the user initials is submitted
+userInitials.on("submit", renderScores);
 
+//start the game on the slick of start button
 startButton.on("click", function () {
   startButton.hide();
   paraBox.hide();
