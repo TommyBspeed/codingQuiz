@@ -7,6 +7,8 @@ var paraBox = $(".paraBox");
 var scoreArea = $("#scoreArea");
 var questionsText = $("#questions");
 var answers = $("#answers");
+var questionBox = $("#questionBox");
+var currentQuestionIndex;
 
 var points = 0;
 var secondsLeft = 30;
@@ -16,6 +18,7 @@ score.hide();
 timer.hide();
 scoreArea.hide();
 questionsText.hide();
+questionBox.hide();
 
 //set timer interval in variable
 function startTimer() {
@@ -79,9 +82,12 @@ const questions = [
   },
 ];
 
-function renderQuestion(currentQuestion) {
-  questionsText.text(questions[currentQuestion].question);
-  questions[currentQuestion].answers.forEach((answer, i) => {
+//create function to render the question and corresponding answers
+function renderQuestion(newCurrentQuestion) {
+  currentQuestionIndex = newCurrentQuestion;
+  answers.empty();
+  questionsText.text(questions[newCurrentQuestion].question);
+  questions[newCurrentQuestion].answers.forEach((answer, i) => {
     answers.append(
       `<button id=${i} class="answerButtons">${answer.text}</button>`
     );
@@ -93,7 +99,7 @@ function renderQuestion(currentQuestion) {
 
     //look up the correct value for chosenButtonIndex
     const isCorrect =
-      questions[currentQuestion].answers[chosenButtonIndex].correct;
+      questions[newCurrentQuestion].answers[chosenButtonIndex].correct;
 
     //if correct fire correctAnswer() else fire incorrectAnswer()
     if (isCorrect) {
@@ -104,17 +110,22 @@ function renderQuestion(currentQuestion) {
   });
 }
 function correctAnswer() {
+  points = points + 10;
+  var newIndex = currentQuestionIndex + 1;
+  renderQuestion(newIndex);
   console.log("woo!");
 }
 function incorrectAnswer() {
+  var newIndex = currentQuestionIndex + 1;
+  renderQuestion(newIndex);
+  secondsLeft = secondsLeft - 5;
   console.log("boo!");
 }
 
 //place the scores into local storage
-function renderScores(event) {
-  event.preventDefault;
+function renderScores() {
   localStorage.getItem("#initials", initials);
-  localStorage.getItem("score", score);
+  localStorage.getItem("score", points);
   initials.text = userInitials;
 
   if (userInitials === "") {
@@ -133,18 +144,27 @@ function renderScores(event) {
 
 function endGame() {
   scoreArea.show();
+  questionBox.hide();
   renderScores();
 }
 
 //start the game on the click of start button
-startButton.on("click", function () {
-  startButton.hide();
-  hsButton.hide();
-  paraBox.hide();
-  score.show();
-  timer.show();
-  questionsText.show();
-  qNum = 0;
-  renderQuestion(1);
-  startTimer();
-});
+startButton.on(
+  "click",
+  function () {
+    startButton.hide();
+    hsButton.hide();
+    paraBox.hide();
+    score.show();
+    timer.show();
+    questionsText.show();
+    questionBox.show();
+    qNum = 0;
+    renderQuestion(0);
+    startTimer();
+  }
+
+  //   hsButton.on("click", function () {
+  //     alert();
+  //   })
+);
