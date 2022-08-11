@@ -5,17 +5,17 @@ var score = $(".score");
 var timer = $(".timer");
 var paraBox = $(".paraBox");
 var scoreArea = $("#scoreArea");
-// var answerButtons = $("#qaButtons");
-var questionsBox = $("#questionsBox");
+var questionsText = $("#questions");
+var answers = $("#answers");
+
 var points = 0;
 var secondsLeft = 30;
-let qNum;
 
 //hide elements that wont be used til later on the initial page load
 score.hide();
 timer.hide();
 scoreArea.hide();
-questionsBox.hide();
+questionsText.hide();
 
 //set timer interval in variable
 function startTimer() {
@@ -79,6 +79,20 @@ const questions = [
   },
 ];
 
+function renderQuestion(currentQuestion) {
+  questionsText.text(questions[currentQuestion].question);
+  questions[currentQuestion].answers.forEach((answer, i) => {
+    answers.append(
+      `<button id=${i} class="answerButtons">${answer.text}</button>`
+    );
+  });
+  var answerButtons = $(".answerButtons");
+  //create event listener for the answerButtons
+  answerButtons.on("click", function () {
+    console.log("answerButtons.correct");
+  });
+}
+
 //place the scores into local storage
 function renderScores(event) {
   event.preventDefault;
@@ -112,8 +126,8 @@ startButton.on("click", function () {
   paraBox.hide();
   score.show();
   timer.show();
-  questionsBox.show();
+  questionsText.show();
   qNum = 0;
+  renderQuestion(1);
   startTimer();
-  //   renderQuestionAnswers();
 });
