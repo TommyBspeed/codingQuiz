@@ -4,8 +4,10 @@ var score = $(".score");
 var timer = $(".timer");
 var paraBox = $(".paraBox");
 var highScore = $(".initialForm");
+var userInitials = $("#initials");
 var answerButtons = $("#qaButtons");
 var questionBox = $(".card-question");
+var points = 0;
 
 //hide elements that wont be used til later on the initial page load
 score.hide();
@@ -19,6 +21,7 @@ function startTimer() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timer.text(secondsLeft + " seconds left!");
+    score.text("Current score: " + points);
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
@@ -56,6 +59,13 @@ var answers3 = [
 ];
 var answers4 = ["=", "==", "!=", "==="];
 
+var correctAnswers = [
+  "The function is followed by '()'",
+  "You must add an event listener to the element.",
+  "It adds an item to the end of an array.",
+  "===",
+];
+
 function renderAnswers() {
   // Dynamically create buttons for the answers.
   for (var i = 0; i < answers1.length; i++) {
@@ -78,6 +88,24 @@ function renderQuestions() {
   questionh3.text(question1);
   // Attach the h3
   questionBox.append(questionh3);
+}
+
+//place the scores into local storage
+function renderScores() {
+  localStorage.getItem("#initials", initials);
+  initials.text = userInitials;
+
+  if (userInitials === "") {
+    alert("You must add you initials!");
+  }
+
+  //save the initials input to the local storage and render it to the highscores
+  localStorage.setItem("#initials", userInitials);
+}
+
+function endGame() {
+  highScore.show();
+  renderScores();
 }
 startButton.on("click", function () {
   startButton.hide();
