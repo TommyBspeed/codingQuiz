@@ -107,14 +107,6 @@ function endGame() {
   renderScores();
 }
 
-// answerButtons.on('click', function() {
-//     if (answerButtons === correctAnswers) {
-//         (score +10);}
-
-//     else {
-//         (timer -5);
-//     } }
-
 startButton.on("click", function () {
   startButton.hide();
   paraBox.hide();
