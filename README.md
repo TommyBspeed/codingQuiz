@@ -14,4 +14,6 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Mock-Up
 
-Image and Link will go here!
+Link will go here!
+
+![This is a still image of the home screen of the coding quiz.](<./assets/images/Screen%20Shot%202022-08-11%20at%2010.16.08%20AM%20(2).png>)
