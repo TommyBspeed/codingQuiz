@@ -66,7 +66,7 @@ var correctAnswers = [
   "===",
 ];
 
-function renderAnswers() {
+function renderQuestionAnswers() {
   // Dynamically create buttons for the answers.
   for (var i = 0; i < answers1.length; i++) {
     // Create button
@@ -78,9 +78,8 @@ function renderAnswers() {
     // Attach the buttons
     answerButtons.append(answerBtn);
   }
-}
 
-function renderQuestions() {
+  //Attach the Question
   var questionh3 = $("<h3>");
   // Assign question to the h3
   questionh3.attr("data-question", question1);
@@ -107,12 +106,20 @@ function endGame() {
   highScore.show();
   renderScores();
 }
+
+// answerButtons.on('click', function() {
+//     if (answerButtons === correctAnswers) {
+//         (score +10);}
+
+//     else {
+//         (timer -5);
+//     } }
+
 startButton.on("click", function () {
   startButton.hide();
   paraBox.hide();
   score.show();
   timer.show();
   startTimer();
-  renderQuestions();
-  renderAnswers();
+  renderQuestionAnswers();
 });
