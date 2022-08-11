@@ -13,7 +13,7 @@ body {
 }
 
 /* took some styling inspiration from a previous module */
-.start-button {
+.button {
   background: green;
   border-radius: 8px;
   color: #dadada;
