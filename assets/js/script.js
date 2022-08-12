@@ -22,6 +22,7 @@ var secondsLeft = 30;
 score.hide();
 timer.hide();
 hsContainer.hide();
+highScore.hide();
 scoreArea.hide();
 questionsText.hide();
 questionBox.hide();
@@ -175,15 +176,15 @@ function incorrectAnswer() {
 
 //place the scores into local storage
 function renderScores() {
-  localStorage.setItem("initials", initials);
-  localStorage.setItem("points", points);
+  const allScores = { initials: initials, points: points };
 
-  JSON.stringify(points, initials);
+  const scoreJSON = JSON.stringify(allScores);
+  localStorage.setItem("Score", scoreJSON);
 
   if (highScore !== null) {
     for (var i = 0; i < highScore.length; i++) {
       var createLi = document.createElement("li");
-      createLi.textContent = initials + " " + points;
+      createLi.textContent = scoreJSON;
       highScore.append(createLi);
     }
   }
@@ -200,8 +201,9 @@ function endGame() {
 //assign function to the see high scores button
 hsButton.on("click", function () {
   hsContainer.show();
-  localStorage.getItem("initials");
-  localStorage.getItem("points");
+  highScore.show();
+  localStorage.getItem("score");
+
   if (highScore !== null) {
     for (var i = 0; i < highScore.length; i++) {
       var createLi = document.createElement("li");
@@ -212,6 +214,8 @@ hsButton.on("click", function () {
 });
 //assign function to the submit score button
 submitButton.on("click", function () {
+  highScore.show();
+  hsContainer.show();
   renderScores();
 });
 //assign function to the try again button

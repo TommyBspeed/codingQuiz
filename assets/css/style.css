@@ -17,7 +17,6 @@ body {
   background: green;
   border-radius: 8px;
   color: #dadada;
-  cursor: pointer;
   font-size: 36px;
   line-height: 16px;
   padding: 20px 45px;
@@ -25,16 +24,22 @@ body {
   box-shadow: 3px 5px #000000;
 }
 
+.button:hover {
+  background: #51b919;
+  cursor: pointer;
+}
+
 li {
-  background: green;
+  background: #36a8d2;
   border-radius: 8px;
   color: #dadada;
-  cursor: pointer;
   max-width: 50vw;
   font-size: 24px;
   padding: 20px 45px;
+  margin: 10px;
   text-align: center;
   box-shadow: 3px 5px #000000;
+  list-style: none;
 }
 
 button {
@@ -45,6 +50,10 @@ button {
   border-radius: 10px;
 }
 
+button:hover {
+  background: #51b919;
+  cursor: pointer;
+}
 header {
   padding: 40px;
   text-align: center;
@@ -118,5 +127,13 @@ section {
   margin-top: 10px;
   box-shadow: 5px 10px #000000;
   padding: 5px;
+  justify-content: center;
+}
+#highScore {
+  display: flex;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
   justify-content: center;
 }
