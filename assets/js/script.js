@@ -206,7 +206,14 @@ submitButton.on("click", function () {
 });
 //assign function to the try again button
 resetButton.on("click", function () {
-  return;
+  startButton.show();
+  hsButton.show();
+  paraBox.show();
+  score.hide();
+  timer.hide();
+  scoreArea.hide();
+  questionsText.hide();
+  questionBox.hide();
 });
 //start the game on the click of start button
 startButton.on("click", function () {
