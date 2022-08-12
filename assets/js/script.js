@@ -190,6 +190,7 @@ function renderScores() {
   localStorage.setItem("score", score);
 }
 
+//create function for when the game ends
 function endGame() {
   scoreArea.show();
   questionBox.hide();
@@ -206,14 +207,7 @@ submitButton.on("click", function () {
 });
 //assign function to the try again button
 resetButton.on("click", function () {
-  startButton.show();
-  hsButton.show();
-  paraBox.show();
-  score.hide();
-  timer.hide();
-  scoreArea.hide();
-  questionsText.hide();
-  questionBox.hide();
+  location.reload();
 });
 //start the game on the click of start button
 startButton.on("click", function () {
