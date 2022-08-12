@@ -14,6 +14,10 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Mock-Up
 
-Link will go here!
+link to the github:
+https://github.com/TommyBspeed/codingQuiz
+
+link to the webpage:
+https://tommybspeed.github.io/codingQuiz/
 
 ![This is a still image of the home screen of the coding quiz.](<./assets/images/Screen%20Shot%202022-08-11%20at%2010.16.08%20AM%20(2).png>)
