@@ -25,6 +25,18 @@ body {
   box-shadow: 3px 5px #000000;
 }
 
+li {
+  background: green;
+  border-radius: 8px;
+  color: #dadada;
+  cursor: pointer;
+  max-width: 50vw;
+  font-size: 24px;
+  padding: 20px 45px;
+  text-align: center;
+  box-shadow: 3px 5px #000000;
+}
+
 button {
   margin: 5px;
   font-size: larger;
@@ -42,7 +54,8 @@ header {
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
 }
 
 aside h3 {
@@ -91,4 +104,19 @@ section {
   margin-bottom: 10px;
   margin-top: 10px;
   box-shadow: 5px 10px #000000;
+  padding: 2px;
+}
+.hsContainer {
+  display: flex;
+  background: #dadada;
+  font-size: larger;
+  font-weight: bold;
+  color: #000000;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: 5px 10px #000000;
+  padding: 5px;
+  justify-content: center;
 }

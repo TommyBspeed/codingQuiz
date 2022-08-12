@@ -3,14 +3,16 @@ var startButton = $("#start-button");
 var submitButton = $("#submitScore");
 var resetButton = $("#reset");
 var hsButton = $("#hs-button");
+var hsContainer = $(".hsContainer");
 var score = $(".score");
 var timer = $(".timer");
 var paraBox = $(".paraBox");
 var scoreArea = $("#scoreArea");
+var highScore = $("#highScore");
 var questionsText = $("#questions");
 var answers = $("#answers");
 var questionBox = $("#questionBox");
-var userInitials = $("#userInitials");
+var initials = $("#initials").value;
 var currentQuestionIndex;
 
 var points = 0;
@@ -19,6 +21,7 @@ var secondsLeft = 30;
 //hide elements that wont be used til later on the initial page load
 score.hide();
 timer.hide();
+hsContainer.hide();
 scoreArea.hide();
 questionsText.hide();
 questionBox.hide();
@@ -130,7 +133,7 @@ const questions = [
   },
 ];
 
-//create function to render the question and corresponding answers
+//create function to render the question and corresponding answers *got tutoring to help make this work*
 function renderQuestion(newCurrentQuestion) {
   currentQuestionIndex = newCurrentQuestion;
   answers.empty();
@@ -172,34 +175,40 @@ function incorrectAnswer() {
 
 //place the scores into local storage
 function renderScores() {
-  localStorage.getItem("#initials", userInitials);
-  localStorage.getItem("score", points);
-  initials.text = userInitials;
+  localStorage.setItem("initials", initials);
+  localStorage.setItem("points", points);
 
-  if (userInitials === "") {
-    alert("You must add you initials!");
+  JSON.stringify(points, initials);
+
+  if (highScore !== null) {
+    for (var i = 0; i < highScore.length; i++) {
+      var createLi = document.createElement("li");
+      createLi.textContent = initials + " " + points;
+      highScore.append(createLi);
+    }
   }
-  var scoreNames = $(
-    '<li class="flex-row justify-space-between align-center p-2 ">'
-  );
-  scoreNames.text(userInitials);
-  scoreNames.append(initials, score);
-
-  //save the initials input to the local storage and render it to the highscores
-  localStorage.setItem("#initials", userInitials);
-  localStorage.setItem("score", score);
 }
 
 //create function for when the game ends
 function endGame() {
   scoreArea.show();
   questionBox.hide();
+  hsContainer.show();
   timer.text("GAME OVER");
 }
 
 //assign function to the see high scores button
 hsButton.on("click", function () {
-  alert("HIGH SCORES:");
+  hsContainer.show();
+  localStorage.getItem("initials");
+  localStorage.getItem("points");
+  if (highScore !== null) {
+    for (var i = 0; i < highScore.length; i++) {
+      var createLi = document.createElement("li");
+      createLi.textContent = initials + " " + points;
+      highScore.append(createLi);
+    }
+  }
 });
 //assign function to the submit score button
 submitButton.on("click", function () {
@@ -212,7 +221,9 @@ resetButton.on("click", function () {
 //start the game on the click of start button
 startButton.on("click", function () {
   startButton.hide();
+  hsContainer.hide();
   hsButton.hide();
+  highScore.hide();
   paraBox.hide();
   score.show();
   timer.show();
